@@ -21,7 +21,7 @@
 //	}
 //	average1 = (double)sum1 / count1;
 //	average2 = (double)sum2 / count2;
-//	printf("Å¼ÊıÆ½¾ùÖµ¼°¸öÊı£º%lf  %d\nÆæÊıÆ½¾ùÖµ¼°¸öÊı£º%lf  %d", average1, count1, average2, count2);
+//	printf("å¶æ•°å¹³å‡å€¼åŠä¸ªæ•°ï¼š%lf  %d\nå¥‡æ•°å¹³å‡å€¼åŠä¸ªæ•°ï¼š%lf  %d", average1, count1, average2, count2);
 //	return 0;
 //}
 
@@ -114,7 +114,7 @@
 //	double wage = 0;
 //	double tax = 0;
 //	double clean_wage = 0;
-//	printf("ÇëÊäÈë¹¤×÷Ê±¼ä(h)£º");
+//	printf("è¯·è¾“å…¥å·¥ä½œæ—¶é—´(h)ï¼š");
 //	scanf("%d", &hour);
 //	if (hour <= 30)
 //	{
@@ -158,6 +158,6 @@
 //				printf(" %d", i);
 //			}
 //	}
-//	printf("·ÇÕıÕûÊıÇëÖØĞÂÊäÈë");
+//	printf("éæ­£æ•´æ•°è¯·é‡æ–°è¾“å…¥");
 //	return 0;
 //}
