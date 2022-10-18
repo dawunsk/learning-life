@@ -2,66 +2,46 @@
 #include "标头.h"
 void menu()
 {
-	printf("***************************\n");
-	printf("********1.开始游戏*********\n");
-	printf("********2.退出游戏*********\n");
-	printf("***************************\n");
+	printf("******************************\n");
+	printf("******   1.开始游戏     ******\n");
+	printf("******   0.退出游戏     ******\n");
+	printf("******************************\n");
 }
 void game()
 {
-	char board[ROW][COL];
-	InitBoard(board,ROW,COL);//初始化棋盘
-	DisplayBoard(board, ROW, COL);
-	char ret = 0;
-	while (1)
-	{
-		PlayerMove(board, ROW, COL);
-		DisplayBoard(board, ROW, COL);
-		ret = IsWin(board, ROW, COL);
-		if (ret != 'C')
-			break;
-		//判断玩家是否胜利
-		ComputerMove(board, ROW, COL);
-		DisplayBoard(board, ROW, COL);
-		ret = IsWin(board, ROW, COL);
-		if (ret != 'C')
-			break;
-	}
-	if (ret == '*')
-	{
-		printf("玩家赢!\n");
-	}
-	else if (ret == '#')
-	{
-		printf("电脑赢!\n");
-	}
-	else
-	{
-		printf("平局!\n");
-	}
-	DisplayBoard(board, ROW, COL);
+	char mine[ROWS][COLS] = { 0 };
+	char show[ROWS][COLS] = { 0 };
+	InitBoard(mine, ROWS, COLS, '0');
+	InitBoard(show, ROWS, COLS, '*');
+	DisplayBoard(mine, ROW, COL);
+	DisplayBoard(show, ROW, COL);
+	//布置雷
+	SetMine(mine, ROW, COL);
+	//排查雷
+	FindMine(mine, show, ROW, COL);
 }
 int main()
 {
 	int input = 0;
+	srand((unsigned int)time(NULL));
 	do
 	{
 		menu();
-		printf("请选择:>");
 		scanf("%d", &input);
-		switch(input)
+		switch (input)
 		{
 		case 1:
-			printf("开始游戏\n");
+			printf("扫雷\n");
 			game();
 			break;
 		case 0:
-			printf("退出游戏");
+			printf("退出游戏\n");
 			break;
 		default:
-			printf("选择错误，请重新选择");
+			printf("输入错误，请重新选择\n");
 			break;
 		}
+
 	} while (input);
 	return 0;
 }
