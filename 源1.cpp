@@ -1,5 +1,5 @@
 #define _CRT_SECURE_NO_WARNINGS 1
-#include "±êÍ·.h"
+#include "æ ‡å¤´.h"
 void InitBoard(char board[ROWS][COLS], int rows, int cols, char set)
 {
 	int i = 0;
@@ -18,7 +18,7 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 {
 	int i = 0;
 	int j = 0;
-	printf("--------------É¨À×--------------\n");
+	printf("--------------æ‰«é›·--------------\n");
 	for (i = 0; i <= col; i++)
 	{
 		printf("%d ", i);
@@ -33,7 +33,7 @@ void DisplayBoard(char board[ROWS][COLS], int row, int col)
 		}
 		printf("\n");
 	}
-	printf("--------------É¨À×--------------\n");
+	printf("--------------æ‰«é›·--------------\n");
 }
 void SetMine(char mine[ROWS][COLS], int row, int col)
 {
@@ -68,41 +68,41 @@ int get_mine_count(char mine[ROWS][COLS], int x, int y)
 }
 void FindMine(char mine[ROWS][COLS], char show[ROWS][COLS], int row, int col)
 {
-	//1. ÊäÈëÅÅ²éµÄ×ø±ê
-	//2. ¼ì²é×ø±ê´¦ÊÇ²»ÊÇÀ×
-	   // (1) ÊÇÀ×   - ºÜÒÅº¶Õ¨ËÀÁË - ÓÎÏ·½áÊø
-	   // (2) ²»ÊÇÀ×  - Í³¼Æ×ø±êÖÜÎ§ÓÐ¼¸¸öÀ× - ´æ´¢ÅÅ²éÀ×µÄÐÅÏ¢µ½showÊý×é£¬ÓÎÏ·¼ÌÐø
+	//1. è¾“å…¥æŽ’æŸ¥çš„åæ ‡
+	//2. æ£€æŸ¥åæ ‡å¤„æ˜¯ä¸æ˜¯é›·
+	   // (1) æ˜¯é›·   - å¾ˆé—æ†¾ç‚¸æ­»äº† - æ¸¸æˆç»“æŸ
+	   // (2) ä¸æ˜¯é›·  - ç»Ÿè®¡åæ ‡å‘¨å›´æœ‰å‡ ä¸ªé›· - å­˜å‚¨æŽ’æŸ¥é›·çš„ä¿¡æ¯åˆ°showæ•°ç»„ï¼Œæ¸¸æˆç»§ç»­
 	int x = 0;
 	int y = 0;
 	int win = 0;
 	while (win<row*col- EASY_COUNT)
 	{
-		printf("ÇëÊäÈëÒªÅÅ²éµÄ×ø±ê:");
+		printf("è¯·è¾“å…¥è¦æŽ’æŸ¥çš„åæ ‡:");
 		scanf("%d %d", &x, &y);
 		if (x >= 1 && x <= row && y >= 1 && y <= col)
 		{
 			if (mine[x][y] == '1')
 			{
-				printf("Äã±»Õ¨ËÀÁËÄó!\n");
-				DisplayBoard(mine, ROW, COL);
+				printf("ä½ è¢«ç‚¸æ­»äº†æ!\n");
+				DisplayBoard(mine, row, col);
 				break;
 			}
 			else
 			{
 				int count = get_mine_count(mine, x, y);
 				show[x][y] = count + '0';
-				DisplayBoard(mine, ROW, COL);
+				DisplayBoard(show, ROW, COL);
 				win++;
 			}
 		}
 		else
 		{
-			printf("×ø±ê²»ºÏ·¨ÇëÖØÐÂÊäÈë:");
+			printf("åæ ‡ä¸åˆæ³•è¯·é‡æ–°è¾“å…¥:");
 		}
 	}
 	if (win == row * col - EASY_COUNT)
    {
-	  printf("¹§Ï²Äã£¬ÅÅÀ×³É¹¦\n");
+	  printf("æ­å–œä½ ï¼ŒæŽ’é›·æˆåŠŸ\n");
 	  DisplayBoard(mine, row, col);
    }
 }
