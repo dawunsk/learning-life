@@ -53,3 +53,21 @@
 //	show(arr1, arr2, arr3, N);
 //	return 0;
 //}
+#include<assert.h>
+int my_strlen(const char *atr)
+{
+	assert(atr != NULL);
+	int i = 0;
+	while (*atr++ !='\0')
+	{
+		i++;
+	}
+	return i;
+}
+int main()
+{
+	char arr[] = { "xxxxxxxxxxxxxxxxxxxx" };
+	int a = my_strlen(arr);
+	printf("%d", a);
+	return 0;
+}
